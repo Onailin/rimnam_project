@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --surface: #fafaf8;
+  --surface-alt: #ffffff;
+  --blush: #f3f3f0;
+  --background: #fafaf8;
+  --foreground: #2c2c2c;
+  --text-muted: #6b6b6b;
+  --text-soft: #9a9a9a;
+  --accent: #3a3a3a;
+  --accent-dark: #1f1f1f;
+  --border: #e8e8e4;
+  --cream: #ffffff;
+  --cream-dark: #f3f3f0;
+  --wood: #3a3a3a;
+  --wood-light: #6b6b6b;
+  --wood-dark: #2c2c2c;
+  --gold: #b8956b;
+  --gold-light: #f5f0e8;
+  --champagne: #b8956b;
+  --champagne-light: #f5f0e8;
+  --river: #3a3a3a;
+  --river-light: #e8e8e4;
+  --river-dark: #1f1f1f;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --surface: #1a1a1a;
+  --surface-alt: #222222;
+  --blush: #2a2a2a;
+  --background: #161616;
+  --foreground: #f5f5f3;
+  --text-muted: #b0b0b0;
+  --text-soft: #8a8a8a;
+  --accent: #e8e8e4;
+  --accent-dark: #f5f5f3;
+  --border: #333333;
+  --cream: #222222;
+  --cream-dark: #2a2a2a;
+  --wood: #e8e8e4;
+  --wood-light: #b0b0b0;
+  --wood-dark: #f5f5f3;
+  --gold: #d4b896;
+  --gold-light: #2a2824;
+  --champagne: #d4b896;
+  --champagne-light: #2a2824;
+  --river: #e8e8e4;
+  --river-light: #333333;
+  --river-dark: #f5f5f3;
+  --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 @theme inline {
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-blush: var(--blush);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-text-muted: var(--text-muted);
+  --color-text-soft: var(--text-soft);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-border: var(--border);
+  --color-cream: var(--cream);
+  --color-cream-dark: var(--cream-dark);
+  --color-wood: var(--wood);
+  --color-wood-light: var(--wood-light);
+  --color-wood-dark: var(--wood-dark);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-champagne: var(--champagne);
+  --color-champagne-light: var(--champagne-light);
+  --color-river: var(--river);
+  --color-river-light: var(--river-light);
+  --color-river-dark: var(--river-dark);
+  --font-sans: var(--font-noto-sans-thai);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-noto-sans-thai), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Soft reusable surfaces */
+.soft-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--cream);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.soft-card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+.soft-btn {
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.soft-btn-primary {
+  background: var(--wood-dark);
+  color: var(--cream);
+}
+
+.soft-btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.soft-btn-ghost {
+  border: 1px solid var(--border);
+  background: var(--cream);
+  color: var(--wood-dark);
+}
+
+.soft-btn-ghost:hover {
+  background: var(--blush);
+}
+
+.section-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.luxury-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+
+.luxury-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--champagne) 20%,
+    var(--champagne) 80%,
+    transparent
+  );
+  opacity: 0.45;
+}
+
+.home-section {
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
+}
+
+@media (min-width: 640px) {
+  .home-section {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+}
+
+::selection {
+  background-color: var(--blush);
+  color: var(--foreground);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--border);
 }

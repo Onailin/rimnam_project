@@ -52,23 +52,22 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          scrolled
-            ? "border-b border-border bg-white/95 shadow-[0_1px_24px_rgba(0,0,0,0.06)] backdrop-blur-md dark:bg-surface-alt/95"
-            : "bg-white/80 backdrop-blur-sm dark:bg-surface-alt/80"
+          "navbar-glass fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          scrolled && "navbar-glass-scrolled"
         )}
       >
         <nav
-          className="mx-auto flex h-[92px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8"
+          className="mx-auto flex h-[92px] max-w-7xl min-w-0 items-center justify-between gap-2 px-4 sm:gap-4 sm:px-6 lg:px-8"
           aria-label="Main navigation"
         >
           {/* Logo */}
-          <div className="flex shrink-0 items-center gap-3">
+          <div className="flex min-w-0 shrink items-center gap-2 sm:gap-3">
             <Logo
               size="lg"
               priority
               alt={t(siteConfig.name, locale)}
               onClick={() => setMobileOpen(false)}
+              className="max-w-[min(52vw,180px)]"
             />
             <p className="hidden truncate text-xs text-text-soft sm:block">
               {t(siteConfig.tagline, locale)}
@@ -77,7 +76,7 @@ export function Navbar() {
 
           {/* Desktop Nav — centered */}
           <div className="hidden flex-1 items-center justify-center lg:flex">
-            <ul className="flex items-center gap-1 rounded-full bg-blush/80 p-1 dark:bg-cream-dark/80">
+            <ul className="navbar-pill-glass flex items-center gap-1 rounded-full p-1">
               {navItems.map((item) => {
                 const active = isActive(item.href);
                 return (
@@ -94,7 +93,7 @@ export function Navbar() {
                       {active && (
                         <motion.span
                           layoutId="nav-pill"
-                          className="absolute inset-0 rounded-full bg-white shadow-sm dark:bg-cream"
+                          className="absolute inset-0 rounded-full bg-white/90 shadow-sm backdrop-blur-sm ring-1 ring-white/60 dark:bg-white/10 dark:ring-white/10"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
@@ -112,12 +111,12 @@ export function Navbar() {
           <div className="hidden items-center gap-2 lg:flex">
             <Link
               href="/explore"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-blush text-text-muted transition-colors hover:bg-blush/80 hover:text-wood-dark dark:bg-cream-dark"
+              className="navbar-action-glass flex h-10 w-10 items-center justify-center rounded-xl text-text-muted transition-all hover:text-wood-dark"
               aria-label={searchLabel[locale]}
             >
               <Search className="h-[18px] w-[18px]" strokeWidth={1.75} />
             </Link>
-            <div className="mx-1 h-6 w-px bg-border" />
+            <div className="mx-1 h-6 w-px bg-border/60" />
             <LanguageSwitcher variant="navbar" />
             <ThemeToggle variant="navbar" />
             <Link
@@ -133,7 +132,7 @@ export function Navbar() {
             <LanguageSwitcher variant="compact" />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-blush text-wood-dark dark:bg-cream-dark"
+              className="navbar-action-glass flex h-10 w-10 items-center justify-center rounded-xl text-wood-dark"
               aria-expanded={mobileOpen}
               aria-label="Toggle menu"
             >
@@ -164,13 +163,13 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 32 }}
-              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col border-l border-border bg-surface-alt shadow-2xl lg:hidden"
+              className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col border-l border-white/20 bg-white/80 shadow-2xl backdrop-blur-2xl dark:border-white/10 dark:bg-[#1a1a1a]/85 lg:hidden"
             >
-              <div className="flex h-[92px] items-center justify-between border-b border-border px-5">
+              <div className="flex h-[92px] items-center justify-between border-b border-white/30 px-5 dark:border-white/10">
                 <Logo size="sm" alt={t(siteConfig.name, locale)} />
                 <button
                   onClick={() => setMobileOpen(false)}
-                  className="flex h-9 w-9 items-center justify-center rounded-xl bg-blush text-wood-dark"
+                  className="navbar-action-glass flex h-9 w-9 items-center justify-center rounded-xl text-wood-dark"
                   aria-label="Close menu"
                 >
                   <X className="h-4 w-4" />

@@ -24,7 +24,7 @@ export function EventHighlight() {
   };
 
   return (
-    <section className="home-section border-t border-border/60 bg-blush/30 pb-14 dark:bg-cream-dark/15 sm:pb-16">
+    <section className="home-section border-t border-border/60 bg-surface pb-14 sm:pb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-7 flex items-end justify-between gap-4 sm:mb-8">
           <motion.div
@@ -56,9 +56,11 @@ export function EventHighlight() {
           </Link>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {events.map((event, i) => (
-            <EventCard key={event.id} event={event} index={i} />
+            <div key={event.id} className="min-w-0">
+              <EventCard event={event} index={i} />
+            </div>
           ))}
         </div>
       </div>

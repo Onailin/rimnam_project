@@ -40,12 +40,12 @@ export function CategoryCard({ category, index = 0 }: CategoryCardProps) {
     >
       <Link
         href={`/explore?category=${category.slug}`}
-        className="soft-card group flex flex-col items-center rounded-2xl p-4 text-center hover:-translate-y-0.5 sm:p-5"
+        className="soft-card group flex min-w-0 flex-col items-center rounded-2xl p-3 text-center hover:-translate-y-0.5 sm:p-5"
       >
-        <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-champagne-light text-wood-dark ring-1 ring-champagne/20 transition-colors duration-300 group-hover:bg-wood-dark group-hover:text-white group-hover:ring-transparent dark:bg-cream-dark dark:group-hover:bg-cream dark:group-hover:text-wood-dark">
+        <div className="mb-2.5 flex h-10 w-10 items-center justify-center rounded-xl bg-blush text-wood-dark ring-1 ring-border transition-colors duration-300 group-hover:bg-wood-dark group-hover:text-white group-hover:ring-transparent dark:bg-cream-dark dark:group-hover:bg-cream dark:group-hover:text-wood-dark sm:mb-3 sm:h-11 sm:w-11">
           <Icon className="h-5 w-5" strokeWidth={1.5} />
         </div>
-        <h3 className="text-sm font-medium text-wood-dark dark:text-cream">
+        <h3 className="w-full break-words text-xs font-medium text-wood-dark dark:text-cream sm:text-sm">
           {t(category.name, locale)}
         </h3>
         <p className="mt-1.5 text-xs text-text-soft">

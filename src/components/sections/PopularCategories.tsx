@@ -15,7 +15,7 @@ export function PopularCategories() {
   };
 
   return (
-    <section className="home-section bg-champagne-light/40 dark:bg-cream-dark/20">
+    <section className="home-section bg-surface">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="luxury-divider mb-8" />
 
@@ -43,7 +43,7 @@ export function PopularCategories() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
+        <div className="grid min-w-0 grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
           {categories.map((cat, i) => (
             <CategoryCard key={cat.id} category={cat} index={i} />
           ))}

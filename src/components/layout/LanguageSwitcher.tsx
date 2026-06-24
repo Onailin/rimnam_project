@@ -28,9 +28,9 @@ export function LanguageSwitcher({
   const buttonClass = cn(
     "flex items-center gap-1.5 text-sm font-medium transition-colors",
     variant === "navbar" &&
-      "h-10 rounded-xl border-0 bg-blush px-3 text-text-muted hover:bg-blush/80 hover:text-wood-dark",
+      "navbar-action-glass h-10 rounded-xl border-0 px-3 text-text-muted hover:text-wood-dark",
     variant === "compact" &&
-      "h-10 rounded-xl border-0 bg-blush px-2.5 text-text-muted",
+      "navbar-action-glass h-10 rounded-xl border-0 px-2.5 text-text-muted",
     variant === "default" &&
       "rounded-full border-0 bg-blush px-3 py-1.5 text-wood-dark hover:bg-blush/80",
     className

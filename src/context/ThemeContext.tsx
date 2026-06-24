@@ -22,9 +22,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     if (typeof window === "undefined") return "light";
     const saved = window.localStorage.getItem("theme") as Theme | null;
     if (saved) return saved;
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return "light";
   });
   const [mounted, setMounted] = useState(false);
 

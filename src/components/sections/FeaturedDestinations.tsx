@@ -56,9 +56,11 @@ export function FeaturedDestinations() {
           </Link>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {places.slice(0, 6).map((place, i) => (
-            <PlaceCard key={place.id} place={place} index={i} />
+            <div key={place.id} className="min-w-0">
+              <PlaceCard place={place} index={i} />
+            </div>
           ))}
         </div>
 

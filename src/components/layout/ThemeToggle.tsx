@@ -18,7 +18,7 @@ export function ThemeToggle({ className, variant = "default" }: ThemeToggleProps
       className={cn(
         "flex items-center justify-center transition-colors",
         variant === "navbar"
-          ? "h-10 w-10 rounded-xl border-0 bg-blush text-text-muted hover:bg-blush/80 hover:text-wood-dark"
+          ? "navbar-action-glass h-10 w-10 rounded-xl border-0 text-text-muted hover:text-wood-dark"
           : "h-9 w-9 rounded-full border-0 bg-blush text-wood-dark hover:bg-blush/80",
         className
       )}

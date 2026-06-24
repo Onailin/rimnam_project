@@ -15,8 +15,8 @@ const notoSansThai = Noto_Sans_Thai({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name.th} | ชุมชนท่องเที่ยวจันทบุรี`,
-    template: `%s | ${siteConfig.name.th}`,
+    default: "ท่องเที่ยว ริมน้ำจันทบูร",
+    template: "%s | ท่องเที่ยว ริมน้ำจันทบูร",
   },
   description: siteConfig.description.th,
   keywords: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Rim Nam",
   ],
   openGraph: {
-    title: siteConfig.name.th,
+    title: "ท่องเที่ยว ริมน้ำจันทบูร",
     description: siteConfig.description.th,
     locale: "th_TH",
     type: "website",
@@ -49,7 +49,7 @@ export default function RootLayout({
       <body className={`${notoSansThai.variable} min-h-screen antialiased font-normal`}>
         <AppProviders>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 overflow-x-hidden">{children}</main>
           <Footer />
         </AppProviders>
       </body>

@@ -18,10 +18,10 @@
   --wood: #3a3a3a;
   --wood-light: #6b6b6b;
   --wood-dark: #2c2c2c;
-  --gold: #b8956b;
-  --gold-light: #f5f0e8;
-  --champagne: #b8956b;
-  --champagne-light: #f5f0e8;
+  --gold: #6b6b6b;
+  --gold-light: #f3f3f0;
+  --champagne: #9a9a9a;
+  --champagne-light: #f5f5f5;
   --river: #3a3a3a;
   --river-light: #e8e8e4;
   --river-dark: #1f1f1f;
@@ -49,10 +49,10 @@
   --wood: #e8e8e4;
   --wood-light: #b0b0b0;
   --wood-dark: #f5f5f3;
-  --gold: #d4b896;
-  --gold-light: #2a2824;
-  --champagne: #d4b896;
-  --champagne-light: #2a2824;
+  --gold: #b0b0b0;
+  --gold-light: #2a2a2a;
+  --champagne: #8a8a8a;
+  --champagne-light: #222222;
   --river: #e8e8e4;
   --river-light: #333333;
   --river-dark: #f5f5f3;
@@ -88,6 +88,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -95,6 +96,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-noto-sans-thai), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Soft reusable surfaces */
@@ -148,7 +151,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--champagne);
+  color: var(--text-soft);
 }
 
 .luxury-divider {
@@ -156,16 +159,112 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    var(--champagne) 20%,
-    var(--champagne) 80%,
+    var(--border) 20%,
+    var(--border) 80%,
     transparent
   );
-  opacity: 0.45;
+  opacity: 0.8;
 }
 
 .home-section {
   padding-top: 2.75rem;
   padding-bottom: 2.75rem;
+}
+
+.navbar-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(245, 245, 245, 0.42) 100%
+  );
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.navbar-glass-scrolled {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.82) 100%
+  );
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom-color: rgba(232, 232, 228, 0.9);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.dark .navbar-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 34, 34, 0.82) 0%,
+    rgba(26, 26, 26, 0.68) 50%,
+    rgba(22, 22, 22, 0.55) 100%
+  );
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.dark .navbar-glass-scrolled {
+  background: linear-gradient(
+    180deg,
+    rgba(34, 34, 34, 0.94) 0%,
+    rgba(22, 22, 22, 0.88) 100%
+  );
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.navbar-pill-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(243, 243, 240, 0.35) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.dark .navbar-pill-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 42, 42, 0.65) 0%,
+    rgba(34, 34, 34, 0.45) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.navbar-action-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(243, 243, 240, 0.4) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.dark .navbar-action-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(42, 42, 42, 0.7) 0%,
+    rgba(34, 34, 34, 0.5) 100%
+  );
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 640px) {

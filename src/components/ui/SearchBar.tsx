@@ -45,7 +45,7 @@ export function SearchBar({
           "text-wood-dark placeholder:text-text-soft",
           "focus:outline-none focus:ring-2 focus:ring-black/5",
           "dark:text-cream dark:placeholder:text-cream/40",
-          size === "lg" ? "py-3.5 pl-12 pr-12 text-base" : "py-2.5 pl-10 pr-10 text-sm"
+          size === "lg" ? "py-3 pl-11 pr-11 text-sm sm:py-3.5 sm:pl-12 sm:pr-12 sm:text-base" : "py-2.5 pl-10 pr-10 text-sm"
         )}
       />
       {value && (

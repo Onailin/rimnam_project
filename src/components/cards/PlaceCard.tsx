@@ -49,7 +49,7 @@ export function PlaceCard({ place, index = 0 }: PlaceCardProps) {
           )}
         </div>
 
-        <div className="p-5">
+        <div className="p-4 sm:p-5">
           <h3 className="text-base font-medium text-wood-dark transition-colors group-hover:text-accent dark:text-cream">
             {t(place.name, locale)}
           </h3>
